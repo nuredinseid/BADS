@@ -1,0 +1,28 @@
+{
+  "timestamp": "2026-10-11T04:37:00",
+  "minute": "2026-10-11 04:37:00",
+  "transaction_count": 1,
+  "total_amount": 197.83,
+  "scenario_label": "NORMAL",
+  "scenario_intensity": 1.0,
+  "transactions": [
+    {
+      "transaction_id": "TX00098294",
+      "customer_id": "CUS000035",
+      "account_id": "ACC100035",
+      "timestamp": "2026-10-11T04:37:00",
+      "amount": 197.83,
+      "transaction_type": "PURCHASE",
+      "channel": "ATM",
+      "location": "Hawassa",
+      "currency": "ETB",
+      "status": "SUCCESS",
+      "merchant_id": "MER01400",
+      "device_id": "DEV050040",
+      "balance_before": 0.0,
+      "balance_after": 0.0,
+      "beneficiary_account": "",
+      "scenario_label": "NORMAL"
+    }
+  ]
+}

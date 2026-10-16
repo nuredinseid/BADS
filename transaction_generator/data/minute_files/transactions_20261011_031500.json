@@ -1,0 +1,28 @@
+{
+  "timestamp": "2026-10-11T03:15:00",
+  "minute": "2026-10-11 03:15:00",
+  "transaction_count": 1,
+  "total_amount": 73.63,
+  "scenario_label": "NORMAL",
+  "scenario_intensity": 1.0,
+  "transactions": [
+    {
+      "transaction_id": "TX00098180",
+      "customer_id": "CUS000091",
+      "account_id": "ACC100091",
+      "timestamp": "2026-10-11T03:15:00",
+      "amount": 73.63,
+      "transaction_type": "PURCHASE",
+      "channel": "MOBILE",
+      "location": "Gondar",
+      "currency": "ETB",
+      "status": "SUCCESS",
+      "merchant_id": "MER01924",
+      "device_id": "DEV066045",
+      "balance_before": 0.0,
+      "balance_after": 0.0,
+      "beneficiary_account": "",
+      "scenario_label": "NORMAL"
+    }
+  ]
+}

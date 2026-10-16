@@ -1,0 +1,28 @@
+{
+  "timestamp": "2026-10-11T03:05:00",
+  "minute": "2026-10-11 03:05:00",
+  "transaction_count": 1,
+  "total_amount": 15808.72,
+  "scenario_label": "NORMAL",
+  "scenario_intensity": 1.0,
+  "transactions": [
+    {
+      "transaction_id": "TX00098165",
+      "customer_id": "CUS000032",
+      "account_id": "ACC100032",
+      "timestamp": "2026-10-11T03:05:00",
+      "amount": 15808.72,
+      "transaction_type": "ATM_WITHDRAWAL",
+      "channel": "WEB",
+      "location": "Bahir Dar",
+      "currency": "ETB",
+      "status": "SUCCESS",
+      "merchant_id": "",
+      "device_id": "DEV022592",
+      "balance_before": 0.0,
+      "balance_after": 0.0,
+      "beneficiary_account": "",
+      "scenario_label": "NORMAL"
+    }
+  ]
+}

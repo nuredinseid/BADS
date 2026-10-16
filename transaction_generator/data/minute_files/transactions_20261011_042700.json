@@ -1,0 +1,46 @@
+{
+  "timestamp": "2026-10-11T04:27:00",
+  "minute": "2026-10-11 04:27:00",
+  "transaction_count": 2,
+  "total_amount": 6363.57,
+  "scenario_label": "NORMAL",
+  "scenario_intensity": 1.0,
+  "transactions": [
+    {
+      "transaction_id": "TX00098280",
+      "customer_id": "CUS000094",
+      "account_id": "ACC100094",
+      "timestamp": "2026-10-11T04:27:00",
+      "amount": 760.12,
+      "transaction_type": "ATM_WITHDRAWAL",
+      "channel": "POS",
+      "location": "Arba Minch",
+      "currency": "ETB",
+      "status": "SUCCESS",
+      "merchant_id": "",
+      "device_id": "DEV014316",
+      "balance_before": 0.0,
+      "balance_after": 0.0,
+      "beneficiary_account": "",
+      "scenario_label": "NORMAL"
+    },
+    {
+      "transaction_id": "TX00098281",
+      "customer_id": "CUS000012",
+      "account_id": "ACC100012",
+      "timestamp": "2026-10-11T04:27:00",
+      "amount": 5603.45,
+      "transaction_type": "TRANSFER",
+      "channel": "MOBILE",
+      "location": "Shashamane",
+      "currency": "ETB",
+      "status": "SUCCESS",
+      "merchant_id": "",
+      "device_id": "DEV088190",
+      "balance_before": 0.0,
+      "balance_after": 0.0,
+      "beneficiary_account": "ACC100102",
+      "scenario_label": "NORMAL"
+    }
+  ]
+}

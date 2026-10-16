@@ -1,0 +1,46 @@
+{
+  "timestamp": "2026-10-10T03:02:00",
+  "minute": "2026-10-10 03:02:00",
+  "transaction_count": 2,
+  "total_amount": 714.97,
+  "scenario_label": "NORMAL",
+  "scenario_intensity": 1.0,
+  "transactions": [
+    {
+      "transaction_id": "TX00051161",
+      "customer_id": "CUS000187",
+      "account_id": "ACC100187",
+      "timestamp": "2026-10-10T03:02:00",
+      "amount": 257.76,
+      "transaction_type": "PURCHASE",
+      "channel": "MOBILE",
+      "location": "Jimma",
+      "currency": "ETB",
+      "status": "SUCCESS",
+      "merchant_id": "MER01772",
+      "device_id": "DEV025133",
+      "balance_before": 1562.89,
+      "balance_after": 1305.13,
+      "beneficiary_account": "",
+      "scenario_label": "NORMAL"
+    },
+    {
+      "transaction_id": "TX00051162",
+      "customer_id": "CUS000038",
+      "account_id": "ACC100038",
+      "timestamp": "2026-10-10T03:02:00",
+      "amount": 457.21,
+      "transaction_type": "TRANSFER",
+      "channel": "WEB",
+      "location": "Mekelle",
+      "currency": "ETB",
+      "status": "PENDING",
+      "merchant_id": "",
+      "device_id": "DEV094092",
+      "balance_before": 0.0,
+      "balance_after": 0.0,
+      "beneficiary_account": "ACC100196",
+      "scenario_label": "NORMAL"
+    }
+  ]
+}

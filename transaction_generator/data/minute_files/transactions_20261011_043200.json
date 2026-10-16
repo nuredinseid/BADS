@@ -1,0 +1,28 @@
+{
+  "timestamp": "2026-10-11T04:32:00",
+  "minute": "2026-10-11 04:32:00",
+  "transaction_count": 1,
+  "total_amount": 569.79,
+  "scenario_label": "NORMAL",
+  "scenario_intensity": 1.0,
+  "transactions": [
+    {
+      "transaction_id": "TX00098287",
+      "customer_id": "CUS000199",
+      "account_id": "ACC100199",
+      "timestamp": "2026-10-11T04:32:00",
+      "amount": 569.79,
+      "transaction_type": "PAYMENT",
+      "channel": "WEB",
+      "location": "Debre Birhan",
+      "currency": "ETB",
+      "status": "SUCCESS",
+      "merchant_id": "MER01228",
+      "device_id": "DEV018737",
+      "balance_before": 3513.36,
+      "balance_after": 2943.57,
+      "beneficiary_account": "",
+      "scenario_label": "NORMAL"
+    }
+  ]
+}

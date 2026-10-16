@@ -1,0 +1,28 @@
+{
+  "timestamp": "2026-10-11T03:55:00",
+  "minute": "2026-10-11 03:55:00",
+  "transaction_count": 1,
+  "total_amount": 877.58,
+  "scenario_label": "NORMAL",
+  "scenario_intensity": 1.0,
+  "transactions": [
+    {
+      "transaction_id": "TX00098237",
+      "customer_id": "CUS000149",
+      "account_id": "ACC100149",
+      "timestamp": "2026-10-11T03:55:00",
+      "amount": 877.58,
+      "transaction_type": "ATM_WITHDRAWAL",
+      "channel": "MOBILE",
+      "location": "Dire Dawa",
+      "currency": "ETB",
+      "status": "SUCCESS",
+      "merchant_id": "",
+      "device_id": "DEV094011",
+      "balance_before": 1847.21,
+      "balance_after": 969.63,
+      "beneficiary_account": "",
+      "scenario_label": "NORMAL"
+    }
+  ]
+}

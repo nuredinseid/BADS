@@ -1,0 +1,46 @@
+{
+  "timestamp": "2026-10-11T04:25:00",
+  "minute": "2026-10-11 04:25:00",
+  "transaction_count": 2,
+  "total_amount": 1142.84,
+  "scenario_label": "NORMAL",
+  "scenario_intensity": 1.0,
+  "transactions": [
+    {
+      "transaction_id": "TX00098277",
+      "customer_id": "CUS000183",
+      "account_id": "ACC100183",
+      "timestamp": "2026-10-11T04:25:00",
+      "amount": 252.41,
+      "transaction_type": "DEPOSIT",
+      "channel": "MOBILE",
+      "location": "Harar",
+      "currency": "ETB",
+      "status": "PENDING",
+      "merchant_id": "",
+      "device_id": "DEV029943",
+      "balance_before": 0.0,
+      "balance_after": 252.41,
+      "beneficiary_account": "",
+      "scenario_label": "NORMAL"
+    },
+    {
+      "transaction_id": "TX00098278",
+      "customer_id": "CUS000026",
+      "account_id": "ACC100026",
+      "timestamp": "2026-10-11T04:25:00",
+      "amount": 890.43,
+      "transaction_type": "MOBILE_TRANSFER",
+      "channel": "WEB",
+      "location": "Shashamane",
+      "currency": "ETB",
+      "status": "SUCCESS",
+      "merchant_id": "",
+      "device_id": "DEV019542",
+      "balance_before": 1445.35,
+      "balance_after": 554.92,
+      "beneficiary_account": "ACC100153",
+      "scenario_label": "NORMAL"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "timestamp": "2026-10-11T03:59:00",
+  "minute": "2026-10-11 03:59:00",
+  "transaction_count": 2,
+  "total_amount": 522.01,
+  "scenario_label": "NORMAL",
+  "scenario_intensity": 1.0,
+  "transactions": [
+    {
+      "transaction_id": "TX00098243",
+      "customer_id": "CUS000154",
+      "account_id": "ACC100154",
+      "timestamp": "2026-10-11T03:59:00",
+      "amount": 381.62,
+      "transaction_type": "DEPOSIT",
+      "channel": "POS",
+      "location": "Hawassa",
+      "currency": "ETB",
+      "status": "SUCCESS",
+      "merchant_id": "",
+      "device_id": "DEV087502",
+      "balance_before": 0.0,
+      "balance_after": 381.62,
+      "beneficiary_account": "",
+      "scenario_label": "NORMAL"
+    },
+    {
+      "transaction_id": "TX00098244",
+      "customer_id": "CUS000065",
+      "account_id": "ACC100065",
+      "timestamp": "2026-10-11T03:59:00",
+      "amount": 140.39,
+      "transaction_type": "TRANSFER",
+      "channel": "WEB",
+      "location": "Debre Birhan",
+      "currency": "ETB",
+      "status": "SUCCESS",
+      "merchant_id": "",
+      "device_id": "DEV038299",
+      "balance_before": 0.0,
+      "balance_after": 0.0,
+      "beneficiary_account": "ACC100125",
+      "scenario_label": "NORMAL"
+    }
+  ]
+}

@@ -1,0 +1,46 @@
+{
+  "timestamp": "2026-10-11T03:57:00",
+  "minute": "2026-10-11 03:57:00",
+  "transaction_count": 2,
+  "total_amount": 303.68,
+  "scenario_label": "NORMAL",
+  "scenario_intensity": 1.0,
+  "transactions": [
+    {
+      "transaction_id": "TX00098240",
+      "customer_id": "CUS000106",
+      "account_id": "ACC100106",
+      "timestamp": "2026-10-11T03:57:00",
+      "amount": 157.88,
+      "transaction_type": "MOBILE_TRANSFER",
+      "channel": "ATM",
+      "location": "Debre Birhan",
+      "currency": "ETB",
+      "status": "SUCCESS",
+      "merchant_id": "",
+      "device_id": "DEV078075",
+      "balance_before": 0.0,
+      "balance_after": 0.0,
+      "beneficiary_account": "ACC100144",
+      "scenario_label": "NORMAL"
+    },
+    {
+      "transaction_id": "TX00098241",
+      "customer_id": "CUS000161",
+      "account_id": "ACC100161",
+      "timestamp": "2026-10-11T03:57:00",
+      "amount": 145.8,
+      "transaction_type": "PURCHASE",
+      "channel": "POS",
+      "location": "Shashamane",
+      "currency": "ETB",
+      "status": "SUCCESS",
+      "merchant_id": "MER00672",
+      "device_id": "DEV072053",
+      "balance_before": 0.0,
+      "balance_after": 0.0,
+      "beneficiary_account": "",
+      "scenario_label": "NORMAL"
+    }
+  ]
+}

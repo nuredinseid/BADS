@@ -1,0 +1,28 @@
+{
+  "timestamp": "2026-10-11T04:54:00",
+  "minute": "2026-10-11 04:54:00",
+  "transaction_count": 1,
+  "total_amount": 427.37,
+  "scenario_label": "NORMAL",
+  "scenario_intensity": 1.0,
+  "transactions": [
+    {
+      "transaction_id": "TX00098321",
+      "customer_id": "CUS000186",
+      "account_id": "ACC100186",
+      "timestamp": "2026-10-11T04:54:00",
+      "amount": 427.37,
+      "transaction_type": "WITHDRAWAL",
+      "channel": "MOBILE",
+      "location": "Harar",
+      "currency": "ETB",
+      "status": "SUCCESS",
+      "merchant_id": "",
+      "device_id": "DEV067401",
+      "balance_before": 0.0,
+      "balance_after": 0.0,
+      "beneficiary_account": "",
+      "scenario_label": "NORMAL"
+    }
+  ]
+}

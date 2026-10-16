@@ -1,0 +1,46 @@
+{
+  "timestamp": "2026-10-11T03:43:00",
+  "minute": "2026-10-11 03:43:00",
+  "transaction_count": 2,
+  "total_amount": 2671.44,
+  "scenario_label": "NORMAL",
+  "scenario_intensity": 1.0,
+  "transactions": [
+    {
+      "transaction_id": "TX00098220",
+      "customer_id": "CUS000008",
+      "account_id": "ACC100008",
+      "timestamp": "2026-10-11T03:43:00",
+      "amount": 2497.03,
+      "transaction_type": "TRANSFER",
+      "channel": "MOBILE",
+      "location": "Dire Dawa",
+      "currency": "ETB",
+      "status": "SUCCESS",
+      "merchant_id": "",
+      "device_id": "DEV065001",
+      "balance_before": 4012.54,
+      "balance_after": 1515.51,
+      "beneficiary_account": "ACC100199",
+      "scenario_label": "NORMAL"
+    },
+    {
+      "transaction_id": "TX00098221",
+      "customer_id": "CUS000071",
+      "account_id": "ACC100071",
+      "timestamp": "2026-10-11T03:43:00",
+      "amount": 174.41,
+      "transaction_type": "PURCHASE",
+      "channel": "MOBILE",
+      "location": "Addis Ababa",
+      "currency": "ETB",
+      "status": "SUCCESS",
+      "merchant_id": "MER01654",
+      "device_id": "DEV020802",
+      "balance_before": 0.0,
+      "balance_after": 0.0,
+      "beneficiary_account": "",
+      "scenario_label": "NORMAL"
+    }
+  ]
+}

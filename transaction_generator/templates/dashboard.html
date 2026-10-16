@@ -1,0 +1,638 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BADS Transaction Monitor</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.0/dist/chart.umd.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+            background: linear-gradient(135deg, #1e293b 0%, #0f172a 100%);
+            color: #e2e8f0;
+            min-height: 100vh;
+        }
+        
+        .navbar {
+            background: rgba(15, 23, 42, 0.95);
+            backdrop-filter: blur(10px);
+            padding: 1rem 2rem;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+        }
+        
+        .brand-icon {
+            width: 40px;
+            height: 40px;
+            background: linear-gradient(135deg, #3b82f6 0%, #8b5cf6 100%);
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 20px;
+        }
+        
+        .brand h1 {
+            font-size: 1.5rem;
+            font-weight: 600;
+            background: linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+        
+        .time-display {
+            display: flex;
+            align-items: center;
+            gap: 20px;
+            font-size: 0.9rem;
+        }
+        
+        .time-item {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            padding: 8px 16px;
+            background: rgba(30, 41, 59, 0.8);
+            border-radius: 8px;
+            border: 1px solid rgba(148, 163, 184, 0.1);
+        }
+        
+        .time-item i { color: #60a5fa; }
+        .time-value { font-weight: 600; color: #f1f5f9; }
+        
+        .container {
+            max-width: 1600px;
+            margin: 0 auto;
+            padding: 2rem;
+        }
+        
+        .grid {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr);
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .card {
+            background: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid rgba(148, 163, 184, 0.1);
+        }
+        
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 1rem;
+            color: #94a3b8;
+            font-size: 0.875rem;
+            text-transform: uppercase;
+            letter-spacing: 0.5px;
+        }
+        
+        .card-icon {
+            width: 32px;
+            height: 32px;
+            border-radius: 8px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 14px;
+        }
+        
+        .icon-blue { background: rgba(59, 130, 246, 0.2); color: #60a5fa; }
+        .icon-green { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+        .icon-purple { background: rgba(139, 92, 246, 0.2); color: #a78bfa; }
+        .icon-orange { background: rgba(251, 146, 60, 0.2); color: #fb923c; }
+        
+        .card-value {
+            font-size: 2rem;
+            font-weight: 700;
+            color: #f1f5f9;
+            margin-bottom: 0.5rem;
+        }
+        
+        .card-subtitle {
+            font-size: 0.875rem;
+            color: #64748b;
+        }
+        
+        .scenario-badge {
+            display: inline-block;
+            padding: 6px 12px;
+            border-radius: 6px;
+            font-weight: 600;
+            font-size: 0.875rem;
+        }
+        
+        .badge-normal { background: rgba(16, 185, 129, 0.2); color: #34d399; }
+        .badge-spike { 
+            background: rgba(239, 68, 68, 0.2); 
+            color: #ef4444;
+            animation: pulse 2s infinite;
+        }
+        .badge-drop { 
+            background: rgba(251, 146, 60, 0.2); 
+            color: #fb923c;
+            animation: pulse 2s infinite;
+        }
+        
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.7; }
+        }
+        
+        .chart-row {
+            display: grid;
+            grid-template-columns: 2fr 1fr;
+            gap: 1.5rem;
+            margin-bottom: 1.5rem;
+        }
+        
+        .chart-container {
+            background: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid rgba(148, 163, 184, 0.1);
+        }
+        
+        .chart-title {
+            font-size: 1rem;
+            font-weight: 600;
+            margin-bottom: 1rem;
+            color: #f1f5f9;
+        }
+        
+        canvas { max-height: 200px !important; }
+        
+        .table-container {
+            background: rgba(30, 41, 59, 0.8);
+            backdrop-filter: blur(10px);
+            border-radius: 12px;
+            padding: 1.5rem;
+            border: 1px solid rgba(148, 163, 184, 0.1);
+            max-height: 300px;
+            overflow-y: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th {
+            text-align: left;
+            padding: 0.75rem;
+            font-size: 0.75rem;
+            text-transform: uppercase;
+            color: #94a3b8;
+            font-weight: 600;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.1);
+        }
+        
+        td {
+            padding: 0.75rem;
+            font-size: 0.875rem;
+            border-bottom: 1px solid rgba(148, 163, 184, 0.05);
+        }
+        
+        tr:hover {
+            background: rgba(59, 130, 246, 0.05);
+        }
+        
+        .status-dot {
+            display: inline-block;
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            margin-right: 8px;
+            animation: blink 2s infinite;
+        }
+        
+        .dot-active { background: #34d399; }
+        
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.4; }
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 2rem;
+            color: #64748b;
+            font-size: 0.875rem;
+        }
+        
+        ::-webkit-scrollbar { width: 8px; }
+        ::-webkit-scrollbar-track { background: rgba(15, 23, 42, 0.5); }
+        ::-webkit-scrollbar-thumb { 
+            background: rgba(100, 116, 139, 0.5); 
+            border-radius: 4px;
+        }
+        ::-webkit-scrollbar-thumb:hover { background: rgba(100, 116, 139, 0.8); }
+    </style>
+</head>
+<body>
+    <nav class="navbar">
+        <div class="brand">
+            <div class="brand-icon"><i class="fas fa-chart-line"></i></div>
+            <h1>BADS Transaction Monitor</h1>
+        </div>
+        <div class="time-display">
+            <div class="time-item">
+                <i class="fas fa-clock"></i>
+                <span class="time-value" id="globalTime">--:--:--</span>
+            </div>
+            <div class="time-item">
+                <span class="status-dot dot-active"></span>
+                <span>Live</span>
+            </div>
+        </div>
+    </nav>
+    
+    <div class="container">
+        <div class="grid">
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon icon-blue"><i class="fas fa-receipt"></i></div>
+                    <span>Total Transactions</span>
+                </div>
+                <div class="card-value" id="totalTxns">0</div>
+                <div class="card-subtitle" id="txnRate">0 txn/min average</div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon icon-green"><i class="fas fa-money-bill-wave"></i></div>
+                    <span>Total Volume</span>
+                </div>
+                <div class="card-value" id="totalAmount">0</div>
+                <div class="card-subtitle">ETB</div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon icon-purple"><i class="fas fa-exclamation-triangle"></i></div>
+                    <span>Current Status</span>
+                </div>
+                <div class="card-value" style="font-size: 1.5rem;">
+                    <span class="scenario-badge badge-normal" id="scenarioBadge">NORMAL</span>
+                </div>
+                <div class="card-subtitle" id="intensityText">Intensity: ×1.0</div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon icon-orange"><i class="fas fa-bolt"></i></div>
+                    <span>This Minute</span>
+                </div>
+                <div class="card-value" id="currentCount">0</div>
+                <div class="card-subtitle" id="currentAmount">0 ETB</div>
+            </div>
+            
+            <div class="card">
+                <div class="card-header">
+                    <div class="card-icon icon-purple"><i class="fas fa-clock"></i></div>
+                    <span>Expected Volume</span>
+                </div>
+                <div class="card-value" style="font-size: 1.5rem;" id="expectedVolume">--</div>
+                <div class="card-subtitle" id="timePattern">Based on time-of-day</div>
+            </div>
+        </div>
+        
+        <div class="grid" style="grid-template-columns: 1fr;">
+            <div class="card" style="padding: 1rem;">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 0.5rem;">
+                    <span style="font-size: 0.875rem; font-weight: 600;">
+                        <i class="fas fa-chart-line"></i> Hourly Activity Pattern
+                    </span>
+                    <span id="currentHourLabel" style="font-size: 0.875rem; color: #60a5fa;"></span>
+                </div>
+                <div id="hourlyPattern" style="display: flex; gap: 2px; height: 40px; align-items: flex-end;"></div>
+                <div style="display: flex; justify-content: space-between; margin-top: 0.5rem; font-size: 0.75rem; color: #64748b;">
+                    <span>00:00</span><span>06:00</span><span>12:00</span><span>18:00</span><span>23:00</span>
+                </div>
+            </div>
+        </div>
+        
+        <div class="chart-row">
+            <div class="chart-container">
+                <div class="chart-title"><i class="fas fa-chart-area"></i> Transaction Volume (60min)</div>
+                <canvas id="volumeChart"></canvas>
+            </div>
+            
+            <div class="chart-container">
+                <div class="chart-title"><i class="fas fa-chart-pie"></i> Transaction Distribution</div>
+                <canvas id="pieChart"></canvas>
+            </div>
+        </div>
+        
+        <div class="chart-row">
+            <div class="table-container">
+                <div class="chart-title"><i class="fas fa="fas fa-file-alt"></i> Generated Minute Files (Last 5)</div>
+                <table id="filesTable">
+                    <thead>
+                        <tr>
+                            <th>Filename</th>
+                            <th>Status</th>
+                            <th>Action</th>
+                        </tr>
+                    </thead>
+                    <tbody id="filesBody"></tbody>
+                </table>
+                <div style="margin-top: 1rem; padding: 1rem; background: rgba(59, 130, 246, 0.1); border-radius: 8px; font-size: 0.875rem;">
+                    <i class="fas fa-info-circle"></i> <strong>Kafka Ready:</strong> 
+                    Each file contains all transactions for one minute. Download and send to Kafka.
+                </div>
+            </div>
+            
+            <div class="table-container">
+                <div class="chart-title"><i class="fas fa-bell"></i> Scenario Events</div>
+                <table id="eventsTable">
+                    <thead>
+                        <tr>
+                            <th>Time</th>
+                            <th>Type</th>
+                            <th>Intensity</th>
+                        </tr>
+                    </thead>
+                    <tbody id="eventsBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+    
+    <div class="footer">
+        Bank Anomaly Detection System (BADS) — Final Year Project
+    </div>
+    
+    <script>
+        // Initialize charts
+        Chart.defaults.color = '#94a3b8';
+        Chart.defaults.borderColor = 'rgba(148, 163, 184, 0.1)';
+        
+        const volumeCtx = document.getElementById('volumeChart').getContext('2d');
+        const pieCtx = document.getElementById('pieChart').getContext('2d');
+        
+        const volumeChart = new Chart(volumeCtx, {
+            type: 'line',
+            data: {
+                labels: [],
+                datasets: [{
+                    label: 'Transactions',
+                    data: [],
+                    borderColor: '#60a5fa',
+                    backgroundColor: 'rgba(96, 165, 250, 0.1)',
+                    borderWidth: 2,
+                    tension: 0.4,
+                    fill: true,
+                    pointRadius: 0,
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: { legend: { display: false } },
+                scales: {
+                    y: { 
+                        beginAtZero: true,
+                        grid: { color: 'rgba(148, 163, 184, 0.1)' }
+                    },
+                    x: { grid: { display: false } }
+                }
+            }
+        });
+        
+        const pieChart = new Chart(pieCtx, {
+            type: 'doughnut',
+            data: {
+                labels: ['Normal', 'Spike', 'Drop'],
+                datasets: [{
+                    data: [95, 3, 2],
+                    backgroundColor: ['#34d399', '#ef4444', '#fb923c'],
+                    borderWidth: 0
+                }]
+            },
+            options: {
+                responsive: true,
+                maintainAspectRatio: true,
+                plugins: {
+                    legend: {
+                        position: 'bottom',
+                        labels: { padding: 15, font: { size: 11 } }
+                    }
+                }
+            }
+        });
+        
+        let eventLog = [];
+        let totalAmount = 0;
+        
+        // Realistic hourly pattern (matches config.py HOUR_WEIGHTS)
+        const hourWeights = [
+            0.10, 0.07, 0.05, 0.04, 0.04, 0.08, 0.15, 0.35,  // 00-07
+            0.65, 0.90, 1.00, 0.95, 0.85, 0.80, 0.90, 0.95,  // 08-15
+            0.90, 0.85, 0.80, 0.70, 0.55, 0.40, 0.25, 0.15   // 16-23
+        ];
+        
+        function initHourlyPattern() {
+            const container = document.getElementById('hourlyPattern');
+            hourWeights.forEach((weight, hour) => {
+                const bar = document.createElement('div');
+                bar.style.flex = '1';
+                bar.style.height = (weight * 100) + '%';
+                bar.style.background = 'rgba(100, 116, 139, 0.3)';
+                bar.style.borderRadius = '2px';
+                bar.style.transition = 'all 0.3s';
+                bar.id = `hour-bar-${hour}`;
+                container.appendChild(bar);
+            });
+        }
+        
+        function updateHourlyPattern() {
+            const now = new Date();
+            const currentHour = now.getHours();
+            
+            // Highlight current hour
+            hourWeights.forEach((weight, hour) => {
+                const bar = document.getElementById(`hour-bar-${hour}`);
+                if (hour === currentHour) {
+                    bar.style.background = 'linear-gradient(135deg, #60a5fa 0%, #a78bfa 100%)';
+                    bar.style.boxShadow = '0 0 10px rgba(96, 165, 250, 0.5)';
+                } else {
+                    bar.style.background = 'rgba(100, 116, 139, 0.3)';
+                    bar.style.boxShadow = 'none';
+                }
+            });
+            
+            // Update label
+            const weight = hourWeights[currentHour];
+            const activity = weight >= 0.8 ? 'Peak Activity' :
+                           weight >= 0.5 ? 'High Activity' :
+                           weight >= 0.2 ? 'Moderate Activity' : 'Low Activity';
+            document.getElementById('currentHourLabel').textContent = 
+                `${String(currentHour).padStart(2, '0')}:00 - ${activity}`;
+            
+            // Calculate expected volume (base 80 tpm * hour weight)
+            const baseTPM = 80;
+            const expected = Math.round(baseTPM * weight);
+            document.getElementById('expectedVolume').textContent = expected;
+            
+            if (weight < 0.2) {
+                document.getElementById('timePattern').textContent = 'Late night - very low';
+            } else if (weight < 0.5) {
+                document.getElementById('timePattern').textContent = 'Off-peak hours';
+            } else if (weight < 0.8) {
+                document.getElementById('timePattern').textContent = 'Business hours';
+            } else {
+                document.getElementById('timePattern').textContent = 'Peak trading hours';
+            }
+        }
+        
+        function updateGlobalTime() {
+            const now = new Date();
+            document.getElementById('globalTime').textContent = now.toLocaleTimeString();
+        }
+        
+        function updateDashboard() {
+            fetch('/api/state')
+                .then(response => response.json())
+                .then(data => {
+                    // Update metrics
+                    document.getElementById('totalTxns').textContent = data.total_transactions.toLocaleString();
+                    const avgRate = data.elapsed_minutes > 0 ? (data.total_transactions / data.elapsed_minutes).toFixed(1) : 0;
+                    document.getElementById('txnRate').textContent = `${avgRate} txn/min average`;
+                    
+                    // Calculate total amount
+                    totalAmount = data.minute_data.reduce((sum, m) => sum + m.amount, 0);
+                    document.getElementById('totalAmount').textContent = (totalAmount / 1000000).toFixed(2) + 'M';
+                    
+                    // Update scenario badge
+                    const badge = document.getElementById('scenarioBadge');
+                    badge.textContent = data.current_scenario;
+                    badge.className = 'scenario-badge badge-' + data.current_scenario.toLowerCase();
+                    document.getElementById('intensityText').textContent = `Intensity: ×${data.scenario_intensity}`;
+                    
+                    // Track scenario changes
+                    if (eventLog.length === 0 || eventLog[eventLog.length - 1].type !== data.current_scenario) {
+                        if (data.current_scenario !== 'NORMAL') {
+                            eventLog.push({
+                                time: new Date().toLocaleTimeString(),
+                                type: data.current_scenario,
+                                intensity: data.scenario_intensity
+                            });
+                            if (eventLog.length > 10) eventLog.shift();
+                        }
+                    }
+                    
+                    // Update current minute
+                    if (data.minute_data.length > 0) {
+                        const latest = data.minute_data[data.minute_data.length - 1];
+                        document.getElementById('currentCount').textContent = latest.count;
+                        document.getElementById('currentAmount').textContent = `${latest.amount.toLocaleString()} ETB`;
+                    }
+                    
+                    // Update volume chart
+                    const labels = data.minute_data.map(m => m.timestamp);
+                    const counts = data.minute_data.map(m => m.count);
+                    const scenarios = data.minute_data.map(m => m.scenario_label);
+                    
+                    volumeChart.data.labels = labels;
+                    volumeChart.data.datasets[0].data = counts;
+                    volumeChart.data.datasets[0].backgroundColor = counts.map((_, i) => {
+                        if (scenarios[i] === 'SPIKE') return 'rgba(239, 68, 68, 0.2)';
+                        if (scenarios[i] === 'DROP') return 'rgba(251, 146, 60, 0.2)';
+                        return 'rgba(96, 165, 250, 0.1)';
+                    });
+                    volumeChart.data.datasets[0].borderColor = counts.map((_, i) => {
+                        if (scenarios[i] === 'SPIKE') return '#ef4444';
+                        if (scenarios[i] === 'DROP') return '#fb923c';
+                        return '#60a5fa';
+                    });
+                    volumeChart.update('none');
+                    
+                    // Update pie chart
+                    const normalCount = scenarios.filter(s => s === 'NORMAL').length;
+                    const spikeCount = scenarios.filter(s => s === 'SPIKE').length;
+                    const dropCount = scenarios.filter(s => s === 'DROP').length;
+                    pieChart.data.datasets[0].data = [normalCount, spikeCount, dropCount];
+                    pieChart.update('none');
+                    
+                    // Update files table
+                    const filesBody = document.getElementById('filesBody');
+                    filesBody.innerHTML = '';
+                    if (data.recent_files && data.recent_files.length > 0) {
+                        data.recent_files.slice().reverse().forEach(filename => {
+                            const row = filesBody.insertRow();
+                            const nameCell = row.insertCell(0);
+                            nameCell.textContent = filename;
+                            nameCell.style.fontFamily = 'monospace';
+                            nameCell.style.fontSize = '0.75rem';
+                            
+                            const statusCell = row.insertCell(1);
+                            statusCell.innerHTML = '<span style="color: #34d399;"><i class="fas fa-check-circle"></i> Ready</span>';
+                            
+                            const actionCell = row.insertCell(2);
+                            actionCell.innerHTML = `<a href="/api/files/${filename}" target="_blank" style="color: #60a5fa; text-decoration: none;"><i class="fas fa-download"></i> Download</a>`;
+                        });
+                    } else {
+                        const row = filesBody.insertRow();
+                        const cell = row.insertCell(0);
+                        cell.colSpan = 3;
+                        cell.textContent = 'Waiting for first minute to complete...';
+                        cell.style.textAlign = 'center';
+                        cell.style.color = '#64748b';
+                    }
+                    
+                    // Update recent transactions table (removed, now showing files)
+                    /*
+                    const tbody = document.getElementById('tableBody');
+                    tbody.innerHTML = '';
+                    data.minute_data.slice(-10).reverse().forEach(m => {
+                        const row = tbody.insertRow();
+                        row.insertCell(0).textContent = m.timestamp;
+                        row.insertCell(1).textContent = m.count;
+                        row.insertCell(2).textContent = m.amount.toLocaleString();
+                        const statusCell = row.insertCell(3);
+                        statusCell.innerHTML = `<span class="scenario-badge badge-${m.scenario_label.toLowerCase()}">${m.scenario_label}</span>`;
+                    });
+                    */
+                    
+                    // Update events table
+                    const eventsBody = document.getElementById('eventsBody');
+                    eventsBody.innerHTML = '';
+                    eventLog.slice().reverse().forEach(e => {
+                        const row = eventsBody.insertRow();
+                        row.insertCell(0).textContent = e.time;
+                        const typeCell = row.insertCell(1);
+                        typeCell.innerHTML = `<span class="scenario-badge badge-${e.type.toLowerCase()}">${e.type}</span>`;
+                        row.insertCell(2).textContent = `×${e.intensity}`;
+                    });
+                })
+                .catch(error => console.error('Error:', error));
+        }
+        
+        setInterval(updateGlobalTime, 1000);
+        setInterval(updateDashboard, 1000);
+        setInterval(updateHourlyPattern, 60000); // Update every minute
+        updateGlobalTime();
+        initHourlyPattern();
+        updateHourlyPattern();
+        updateDashboard();
+    </script>
+</body>
+</html>

@@ -1,0 +1,46 @@
+{
+  "timestamp": "2026-10-11T04:58:00",
+  "minute": "2026-10-11 04:58:00",
+  "transaction_count": 2,
+  "total_amount": 9877.52,
+  "scenario_label": "NORMAL",
+  "scenario_intensity": 1.0,
+  "transactions": [
+    {
+      "transaction_id": "TX00098326",
+      "customer_id": "CUS000167",
+      "account_id": "ACC100167",
+      "timestamp": "2026-10-11T04:58:00",
+      "amount": 9228.8,
+      "transaction_type": "ATM_WITHDRAWAL",
+      "channel": "MOBILE",
+      "location": "Mekelle",
+      "currency": "ETB",
+      "status": "SUCCESS",
+      "merchant_id": "",
+      "device_id": "DEV002721",
+      "balance_before": 0.0,
+      "balance_after": 0.0,
+      "beneficiary_account": "",
+      "scenario_label": "NORMAL"
+    },
+    {
+      "transaction_id": "TX00098327",
+      "customer_id": "CUS000098",
+      "account_id": "ACC100098",
+      "timestamp": "2026-10-11T04:58:00",
+      "amount": 648.72,
+      "transaction_type": "PAYMENT",
+      "channel": "ATM",
+      "location": "Gondar",
+      "currency": "ETB",
+      "status": "SUCCESS",
+      "merchant_id": "MER00044",
+      "device_id": "DEV091058",
+      "balance_before": 0.0,
+      "balance_after": 0.0,
+      "beneficiary_account": "",
+      "scenario_label": "NORMAL"
+    }
+  ]
+}

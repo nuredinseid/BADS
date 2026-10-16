@@ -1,0 +1,28 @@
+{
+  "timestamp": "2026-10-11T04:40:00",
+  "minute": "2026-10-11 04:40:00",
+  "transaction_count": 1,
+  "total_amount": 285.18,
+  "scenario_label": "NORMAL",
+  "scenario_intensity": 1.0,
+  "transactions": [
+    {
+      "transaction_id": "TX00098298",
+      "customer_id": "CUS000114",
+      "account_id": "ACC100114",
+      "timestamp": "2026-10-11T04:40:00",
+      "amount": 285.18,
+      "transaction_type": "MOBILE_TRANSFER",
+      "channel": "WEB",
+      "location": "Nekemte",
+      "currency": "ETB",
+      "status": "SUCCESS",
+      "merchant_id": "",
+      "device_id": "DEV061393",
+      "balance_before": 0.0,
+      "balance_after": 0.0,
+      "beneficiary_account": "ACC100110",
+      "scenario_label": "NORMAL"
+    }
+  ]
+}

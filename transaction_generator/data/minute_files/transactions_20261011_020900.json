@@ -1,0 +1,46 @@
+{
+  "timestamp": "2026-10-11T02:09:00",
+  "minute": "2026-10-11 02:09:00",
+  "transaction_count": 2,
+  "total_amount": 617.34,
+  "scenario_label": "NORMAL",
+  "scenario_intensity": 1.0,
+  "transactions": [
+    {
+      "transaction_id": "TX00097989",
+      "customer_id": "CUS000096",
+      "account_id": "ACC100096",
+      "timestamp": "2026-10-11T02:09:00",
+      "amount": 492.04,
+      "transaction_type": "TRANSFER",
+      "channel": "WEB",
+      "location": "Arba Minch",
+      "currency": "ETB",
+      "status": "SUCCESS",
+      "merchant_id": "",
+      "device_id": "DEV011214",
+      "balance_before": 0.0,
+      "balance_after": 0.0,
+      "beneficiary_account": "ACC100041",
+      "scenario_label": "NORMAL"
+    },
+    {
+      "transaction_id": "TX00097990",
+      "customer_id": "CUS000118",
+      "account_id": "ACC100118",
+      "timestamp": "2026-10-11T02:09:00",
+      "amount": 125.3,
+      "transaction_type": "PURCHASE",
+      "channel": "WEB",
+      "location": "Dire Dawa",
+      "currency": "ETB",
+      "status": "SUCCESS",
+      "merchant_id": "MER00471",
+      "device_id": "DEV037964",
+      "balance_before": 0.0,
+      "balance_after": 0.0,
+      "beneficiary_account": "",
+      "scenario_label": "NORMAL"
+    }
+  ]
+}

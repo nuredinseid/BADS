@@ -1,0 +1,28 @@
+{
+  "timestamp": "2026-10-11T04:30:00",
+  "minute": "2026-10-11 04:30:00",
+  "transaction_count": 1,
+  "total_amount": 358.67,
+  "scenario_label": "NORMAL",
+  "scenario_intensity": 1.0,
+  "transactions": [
+    {
+      "transaction_id": "TX00098285",
+      "customer_id": "CUS000011",
+      "account_id": "ACC100011",
+      "timestamp": "2026-10-11T04:30:00",
+      "amount": 358.67,
+      "transaction_type": "MOBILE_TRANSFER",
+      "channel": "MOBILE",
+      "location": "Jimma",
+      "currency": "ETB",
+      "status": "PENDING",
+      "merchant_id": "",
+      "device_id": "DEV067266",
+      "balance_before": 0.0,
+      "balance_after": 0.0,
+      "beneficiary_account": "ACC100075",
+      "scenario_label": "NORMAL"
+    }
+  ]
+}

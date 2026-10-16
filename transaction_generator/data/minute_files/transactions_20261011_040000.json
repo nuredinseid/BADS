@@ -1,0 +1,46 @@
+{
+  "timestamp": "2026-10-11T04:00:00",
+  "minute": "2026-10-11 04:00:00",
+  "transaction_count": 2,
+  "total_amount": 1108.55,
+  "scenario_label": "NORMAL",
+  "scenario_intensity": 1.0,
+  "transactions": [
+    {
+      "transaction_id": "TX00098245",
+      "customer_id": "CUS000175",
+      "account_id": "ACC100175",
+      "timestamp": "2026-10-11T04:00:00",
+      "amount": 559.07,
+      "transaction_type": "WITHDRAWAL",
+      "channel": "MOBILE",
+      "location": "Addis Ababa",
+      "currency": "ETB",
+      "status": "SUCCESS",
+      "merchant_id": "",
+      "device_id": "DEV025645",
+      "balance_before": 0.0,
+      "balance_after": 0.0,
+      "beneficiary_account": "",
+      "scenario_label": "NORMAL"
+    },
+    {
+      "transaction_id": "TX00098246",
+      "customer_id": "CUS000015",
+      "account_id": "ACC100015",
+      "timestamp": "2026-10-11T04:00:00",
+      "amount": 549.48,
+      "transaction_type": "PAYMENT",
+      "channel": "MOBILE",
+      "location": "Jimma",
+      "currency": "ETB",
+      "status": "SUCCESS",
+      "merchant_id": "MER01635",
+      "device_id": "DEV063347",
+      "balance_before": 0.0,
+      "balance_after": 0.0,
+      "beneficiary_account": "",
+      "scenario_label": "NORMAL"
+    }
+  ]
+}

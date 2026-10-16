@@ -1,0 +1,46 @@
+{
+  "timestamp": "2026-10-10T03:37:00",
+  "minute": "2026-10-10 03:37:00",
+  "transaction_count": 2,
+  "total_amount": 2744.11,
+  "scenario_label": "NORMAL",
+  "scenario_intensity": 1.0,
+  "transactions": [
+    {
+      "transaction_id": "TX00051234",
+      "customer_id": "CUS000143",
+      "account_id": "ACC100143",
+      "timestamp": "2026-10-10T03:37:00",
+      "amount": 2358.27,
+      "transaction_type": "WITHDRAWAL",
+      "channel": "WEB",
+      "location": "Dessie",
+      "currency": "ETB",
+      "status": "SUCCESS",
+      "merchant_id": "",
+      "device_id": "DEV087495",
+      "balance_before": 10323.8,
+      "balance_after": 7965.53,
+      "beneficiary_account": "",
+      "scenario_label": "NORMAL"
+    },
+    {
+      "transaction_id": "TX00051235",
+      "customer_id": "CUS000157",
+      "account_id": "ACC100157",
+      "timestamp": "2026-10-10T03:37:00",
+      "amount": 385.84,
+      "transaction_type": "ATM_WITHDRAWAL",
+      "channel": "MOBILE",
+      "location": "Mekelle",
+      "currency": "ETB",
+      "status": "SUCCESS",
+      "merchant_id": "",
+      "device_id": "DEV069782",
+      "balance_before": 0.0,
+      "balance_after": 0.0,
+      "beneficiary_account": "",
+      "scenario_label": "NORMAL"
+    }
+  ]
+}

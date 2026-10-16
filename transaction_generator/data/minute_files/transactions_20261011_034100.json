@@ -1,0 +1,28 @@
+{
+  "timestamp": "2026-10-11T03:41:00",
+  "minute": "2026-10-11 03:41:00",
+  "transaction_count": 1,
+  "total_amount": 1116.48,
+  "scenario_label": "NORMAL",
+  "scenario_intensity": 1.0,
+  "transactions": [
+    {
+      "transaction_id": "TX00098218",
+      "customer_id": "CUS000067",
+      "account_id": "ACC100067",
+      "timestamp": "2026-10-11T03:41:00",
+      "amount": 1116.48,
+      "transaction_type": "TRANSFER",
+      "channel": "WEB",
+      "location": "Bahir Dar",
+      "currency": "ETB",
+      "status": "SUCCESS",
+      "merchant_id": "",
+      "device_id": "DEV053057",
+      "balance_before": 0.0,
+      "balance_after": 0.0,
+      "beneficiary_account": "ACC100009",
+      "scenario_label": "NORMAL"
+    }
+  ]
+}

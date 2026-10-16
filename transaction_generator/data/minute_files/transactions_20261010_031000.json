@@ -1,0 +1,46 @@
+{
+  "timestamp": "2026-10-10T03:10:00",
+  "minute": "2026-10-10 03:10:00",
+  "transaction_count": 2,
+  "total_amount": 1130.99,
+  "scenario_label": "NORMAL",
+  "scenario_intensity": 1.0,
+  "transactions": [
+    {
+      "transaction_id": "TX00051178",
+      "customer_id": "CUS000186",
+      "account_id": "ACC100186",
+      "timestamp": "2026-10-10T03:10:00",
+      "amount": 300.38,
+      "transaction_type": "ATM_WITHDRAWAL",
+      "channel": "POS",
+      "location": "Harar",
+      "currency": "ETB",
+      "status": "SUCCESS",
+      "merchant_id": "",
+      "device_id": "DEV002621",
+      "balance_before": 0.0,
+      "balance_after": 0.0,
+      "beneficiary_account": "",
+      "scenario_label": "NORMAL"
+    },
+    {
+      "transaction_id": "TX00051179",
+      "customer_id": "CUS000026",
+      "account_id": "ACC100026",
+      "timestamp": "2026-10-10T03:10:00",
+      "amount": 830.61,
+      "transaction_type": "PURCHASE",
+      "channel": "WEB",
+      "location": "Shashamane",
+      "currency": "ETB",
+      "status": "SUCCESS",
+      "merchant_id": "MER01633",
+      "device_id": "DEV045443",
+      "balance_before": 0.0,
+      "balance_after": 0.0,
+      "beneficiary_account": "",
+      "scenario_label": "NORMAL"
+    }
+  ]
+}

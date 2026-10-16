@@ -1,0 +1,46 @@
+{
+  "timestamp": "2026-10-10T03:38:00",
+  "minute": "2026-10-10 03:38:00",
+  "transaction_count": 2,
+  "total_amount": 6535.75,
+  "scenario_label": "NORMAL",
+  "scenario_intensity": 1.0,
+  "transactions": [
+    {
+      "transaction_id": "TX00051236",
+      "customer_id": "CUS000046",
+      "account_id": "ACC100046",
+      "timestamp": "2026-10-10T03:38:00",
+      "amount": 6301.58,
+      "transaction_type": "ATM_WITHDRAWAL",
+      "channel": "ATM",
+      "location": "Dessie",
+      "currency": "ETB",
+      "status": "SUCCESS",
+      "merchant_id": "",
+      "device_id": "DEV030557",
+      "balance_before": 0.0,
+      "balance_after": 0.0,
+      "beneficiary_account": "",
+      "scenario_label": "NORMAL"
+    },
+    {
+      "transaction_id": "TX00051237",
+      "customer_id": "CUS000169",
+      "account_id": "ACC100169",
+      "timestamp": "2026-10-10T03:38:00",
+      "amount": 234.17,
+      "transaction_type": "ATM_WITHDRAWAL",
+      "channel": "POS",
+      "location": "Arba Minch",
+      "currency": "ETB",
+      "status": "SUCCESS",
+      "merchant_id": "",
+      "device_id": "DEV093557",
+      "balance_before": 0.0,
+      "balance_after": 0.0,
+      "beneficiary_account": "",
+      "scenario_label": "NORMAL"
+    }
+  ]
+}

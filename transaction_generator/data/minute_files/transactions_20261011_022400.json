@@ -1,0 +1,46 @@
+{
+  "timestamp": "2026-10-11T02:24:00",
+  "minute": "2026-10-11 02:24:00",
+  "transaction_count": 2,
+  "total_amount": 28816.84,
+  "scenario_label": "NORMAL",
+  "scenario_intensity": 1.0,
+  "transactions": [
+    {
+      "transaction_id": "TX00098019",
+      "customer_id": "CUS000162",
+      "account_id": "ACC100162",
+      "timestamp": "2026-10-11T02:24:00",
+      "amount": 25966.56,
+      "transaction_type": "DEPOSIT",
+      "channel": "WEB",
+      "location": "Addis Ababa",
+      "currency": "ETB",
+      "status": "SUCCESS",
+      "merchant_id": "",
+      "device_id": "DEV098228",
+      "balance_before": 0.0,
+      "balance_after": 25966.56,
+      "beneficiary_account": "",
+      "scenario_label": "NORMAL"
+    },
+    {
+      "transaction_id": "TX00098020",
+      "customer_id": "CUS000039",
+      "account_id": "ACC100039",
+      "timestamp": "2026-10-11T02:24:00",
+      "amount": 2850.28,
+      "transaction_type": "TRANSFER",
+      "channel": "MOBILE",
+      "location": "Addis Ababa",
+      "currency": "ETB",
+      "status": "SUCCESS",
+      "merchant_id": "",
+      "device_id": "DEV079411",
+      "balance_before": 0.0,
+      "balance_after": 0.0,
+      "beneficiary_account": "ACC100166",
+      "scenario_label": "NORMAL"
+    }
+  ]
+}

@@ -1,0 +1,28 @@
+{
+  "timestamp": "2026-10-11T04:15:00",
+  "minute": "2026-10-11 04:15:00",
+  "transaction_count": 1,
+  "total_amount": 1522.4,
+  "scenario_label": "NORMAL",
+  "scenario_intensity": 1.0,
+  "transactions": [
+    {
+      "transaction_id": "TX00098264",
+      "customer_id": "CUS000145",
+      "account_id": "ACC100145",
+      "timestamp": "2026-10-11T04:15:00",
+      "amount": 1522.4,
+      "transaction_type": "TRANSFER",
+      "channel": "WEB",
+      "location": "Mekelle",
+      "currency": "ETB",
+      "status": "SUCCESS",
+      "merchant_id": "",
+      "device_id": "DEV081327",
+      "balance_before": 1553.34,
+      "balance_after": 30.94,
+      "beneficiary_account": "ACC100043",
+      "scenario_label": "NORMAL"
+    }
+  ]
+}

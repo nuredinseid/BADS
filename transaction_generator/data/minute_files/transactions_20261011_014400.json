@@ -1,0 +1,46 @@
+{
+  "timestamp": "2026-10-11T01:44:00",
+  "minute": "2026-10-11 01:44:00",
+  "transaction_count": 2,
+  "total_amount": 9063.16,
+  "scenario_label": "NORMAL",
+  "scenario_intensity": 1.0,
+  "transactions": [
+    {
+      "transaction_id": "TX00097931",
+      "customer_id": "CUS000134",
+      "account_id": "ACC100134",
+      "timestamp": "2026-10-11T01:44:00",
+      "amount": 610.36,
+      "transaction_type": "WITHDRAWAL",
+      "channel": "WEB",
+      "location": "Dire Dawa",
+      "currency": "ETB",
+      "status": "SUCCESS",
+      "merchant_id": "",
+      "device_id": "DEV035045",
+      "balance_before": 2248.39,
+      "balance_after": 1638.03,
+      "beneficiary_account": "",
+      "scenario_label": "NORMAL"
+    },
+    {
+      "transaction_id": "TX00097932",
+      "customer_id": "CUS000052",
+      "account_id": "ACC100052",
+      "timestamp": "2026-10-11T01:44:00",
+      "amount": 8452.8,
+      "transaction_type": "TRANSFER",
+      "channel": "MOBILE",
+      "location": "Dessie",
+      "currency": "ETB",
+      "status": "SUCCESS",
+      "merchant_id": "",
+      "device_id": "DEV017562",
+      "balance_before": 0.0,
+      "balance_after": 0.0,
+      "beneficiary_account": "ACC100052",
+      "scenario_label": "NORMAL"
+    }
+  ]
+}

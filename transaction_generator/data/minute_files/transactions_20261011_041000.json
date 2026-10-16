@@ -1,0 +1,28 @@
+{
+  "timestamp": "2026-10-11T04:10:00",
+  "minute": "2026-10-11 04:10:00",
+  "transaction_count": 1,
+  "total_amount": 145.24,
+  "scenario_label": "NORMAL",
+  "scenario_intensity": 1.0,
+  "transactions": [
+    {
+      "transaction_id": "TX00098258",
+      "customer_id": "CUS000172",
+      "account_id": "ACC100172",
+      "timestamp": "2026-10-11T04:10:00",
+      "amount": 145.24,
+      "transaction_type": "ATM_WITHDRAWAL",
+      "channel": "MOBILE",
+      "location": "Addis Ababa",
+      "currency": "ETB",
+      "status": "SUCCESS",
+      "merchant_id": "",
+      "device_id": "DEV061621",
+      "balance_before": 0.0,
+      "balance_after": 0.0,
+      "beneficiary_account": "",
+      "scenario_label": "NORMAL"
+    }
+  ]
+}

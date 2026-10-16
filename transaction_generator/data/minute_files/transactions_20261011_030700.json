@@ -1,0 +1,46 @@
+{
+  "timestamp": "2026-10-11T03:07:00",
+  "minute": "2026-10-11 03:07:00",
+  "transaction_count": 2,
+  "total_amount": 4062.6,
+  "scenario_label": "NORMAL",
+  "scenario_intensity": 1.0,
+  "transactions": [
+    {
+      "transaction_id": "TX00098168",
+      "customer_id": "CUS000117",
+      "account_id": "ACC100117",
+      "timestamp": "2026-10-11T03:07:00",
+      "amount": 3721.24,
+      "transaction_type": "TRANSFER",
+      "channel": "MOBILE",
+      "location": "Bahir Dar",
+      "currency": "ETB",
+      "status": "SUCCESS",
+      "merchant_id": "",
+      "device_id": "DEV016302",
+      "balance_before": 0.0,
+      "balance_after": 0.0,
+      "beneficiary_account": "ACC100051",
+      "scenario_label": "NORMAL"
+    },
+    {
+      "transaction_id": "TX00098169",
+      "customer_id": "CUS000098",
+      "account_id": "ACC100098",
+      "timestamp": "2026-10-11T03:07:00",
+      "amount": 341.36,
+      "transaction_type": "MOBILE_TRANSFER",
+      "channel": "MOBILE",
+      "location": "Gondar",
+      "currency": "ETB",
+      "status": "SUCCESS",
+      "merchant_id": "",
+      "device_id": "DEV070385",
+      "balance_before": 0.0,
+      "balance_after": 0.0,
+      "beneficiary_account": "ACC100124",
+      "scenario_label": "NORMAL"
+    }
+  ]
+}
